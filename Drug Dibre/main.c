@@ -8,7 +8,6 @@ Jogo: Drug Dibre
 *********************************************************/
 #include <stdio.h>
 #include <allegro5/allegro.h>
-#include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
@@ -261,7 +260,6 @@ int main()
 
     //Inicialização do allegro, addons, teclado, etc
     al_init();
-    al_init_primitives_addon();
     al_install_keyboard();
     al_init_image_addon();
     al_install_audio();
@@ -301,7 +299,7 @@ int main()
     darude=al_load_sample("sounds/darude.wav");
     wasted=al_load_sample("sounds/wasted.wav");
 
-    fonte=al_load_ttf_font("fonts/SHOWG.ttf", 24, 0);
+    fonte=al_load_ttf_font("fonts/SHOWG.TTF", 24, 0);
 
     //Correção do fundo dos sprites
     al_convert_mask_to_alpha(img_player, al_map_rgb(255, 0, 255));
@@ -997,7 +995,7 @@ int main()
                     al_stop_sample_instance(gamesoundInstance);
                     al_stop_sample_instance(darudeInstance);
                     al_draw_bitmap(img_background_dead, 0, 0, 0);
-                    al_draw_bitmap(img_player_dead, SCREEN_W/2-20, SCREEN_H/2-15, ALLEGRO_ALIGN_CENTER);
+                    al_draw_bitmap(img_player_dead, SCREEN_W/2-20, SCREEN_H/2-15, ALLEGRO_ALIGN_CENTRE);
                     al_draw_textf(fonte, al_map_rgb(255, 255, 255), SCREEN_W/2, SCREEN_H/2+15, ALLEGRO_ALIGN_CENTRE, "Game Over!");
                     al_draw_textf(fonte, al_map_rgb(255, 255, 255), SCREEN_W/2, SCREEN_H/2+45, ALLEGRO_ALIGN_CENTRE, "As drogas te consumiram!");
                     al_draw_textf(fonte, al_map_rgb(255, 255, 255), SCREEN_W/2, SCREEN_H/2+75, ALLEGRO_ALIGN_CENTRE, "Sua pontuacao:%d", score);
